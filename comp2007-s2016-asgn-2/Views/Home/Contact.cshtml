@@ -1,13 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact Us";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
 <div class="main">
     <div class="container">
-        <div class="row">
-        </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="panel">
@@ -27,47 +22,49 @@
             </div>
             <div class="col-md-8 panel">
                 <div class="page-header text-center">
-                    <h1>Contact Us</h1>
+                    <h1>@ViewBag.Title</h1>
                 </div>
                 <em>Please fill out all fields to send email to us.</em>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Full Name" aria-describedby="basic-addon1" required>
+                <form action="@Url.Action("Index")" method="post">
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="name-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder="Full Name" aria-describedby="name-addon" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-building"></i></span>
-                        <input type="text" class="form-control" placeholder="Company" aria-describedby="basic-addon1" required>
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="company-addon"><i class="fa fa-building"></i></span>
+                            <input type="text" class="form-control" placeholder="Company" aria-describedby="company-addon" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                        <input type="email" class="form-control" placeholder="email@youremail.com" aria-describedby="basic-addon1" required>
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="email-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control" placeholder="email@youremail.com" aria-describedby="email-addon" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i></span>
-                        <input type="number" class="form-control" placeholder="123-456-7890" aria-describedby="basic-addon1" required>
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="phone-addon"><i class="fa fa-phone"></i></span>
+                            <input type="number" class="form-control" placeholder="123-456-7890" aria-describedby="phone-addon" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group form-group-lg">
-                    <label class="control-label" for="MessageTextBox">Message: </label>
-                    <input type="text" class="form-control" placeholder="Please write your message..." aria-describedby="basic-addon1" required>
-                </div>
+                    <div class="form-group form-group-lg">
+                        <label class="control-label" for="MessageTextBox">Message: </label>
+                        <input type="text" id="MessageTextBox" class="form-control" placeholder="Please write your message..." required>
+                    </div>
 
-                <div class="text-center">
-                    <button type="button" class="btn btn-warning">SUBMIT</button>
-                    <button type="button" class="btn btn-danger">CANCEL</button>
-                </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning">SUBMIT</button>
+                        <a href="@Url.Action("Index")" class="btn btn-danger">CANCEL</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
