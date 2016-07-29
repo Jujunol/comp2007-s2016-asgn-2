@@ -185,6 +185,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\CottonCandy.png" />
+    <Content Include="Assets\Dessert.png" />
+    <Content Include="Assets\Fruit.png" />
+    <Content Include="Assets\GrilledMeat.png" />
+    <Content Include="Assets\HotEntrees.png" />
+    <Content Include="Assets\IceCream.png" />
+    <Content Include="Assets\Pizza.png" />
+    <Content Include="Assets\Salad.png" />
+    <Content Include="Assets\SoupAndBread.png" />
+    <Content Include="Assets\Sushi.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
