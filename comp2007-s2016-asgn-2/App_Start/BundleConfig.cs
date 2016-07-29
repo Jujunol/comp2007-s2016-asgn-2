@@ -25,6 +25,8 @@ namespace comp2007_s2016_asgn_2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/Slate.css",
                       "~/Content/site.css"));
         }
     }
