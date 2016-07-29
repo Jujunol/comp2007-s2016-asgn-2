@@ -1,50 +1,27 @@
 ﻿@model comp2007_s2016_asgn_2.Models.MenuItems
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Title + " Details";
 }
 
-<h2>Details</h2>
+@*<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>*@
 
-<div>
-    <h4>MenuItems</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 panel">
+        <div class="col-md-6">
+            <img src="~/Assets/@Model.ImageName" style="width: 100%;" />
+        </div>
+        <div class="col-md-6">
+            <h2>@ViewBag.Title</h2>
+            <p class="lead">$@Model.Price</p>
+            <p>@Html.ActionLink("Back to List", "Index", "MenuItems", htmlAttributes: new { @class = "btn btn-primary" })</p>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 panel">
+        <p class="lead">@Model.Description</p>
+    </div>
+</div>
