@@ -1,40 +1,48 @@
-﻿@model comp2007_s2016_asgn_2.Models.RegisterViewModel
+﻿@using comp2007_s2016_asgn_2.Models
+@model RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "User Registration";
 }
 
-<h2>@ViewBag.Title.</h2>
+@* Backscreen cover *@
+<div style="position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background-image: url(/Assets/Lockscreen.png);"></div>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<div class="row">
+    <div class="jumbotron col-md-8 col-md-offset-2 text-center" style="margin-top: 50px;">
+        <div class="page-header" style="border-bottom: 1px solid white;">
+            <h2>@ViewBag.Title <i class="fa fa-lg fa-lock"></i></h2>
         </div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2 input-group">
+                    <span class="input-group-addon"><i class="fa fa-lg fa-user"></i></span>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "example@email.com" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2 input-group">
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2 input-group">
+                    <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                </div>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
+            </div>
+        }
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
